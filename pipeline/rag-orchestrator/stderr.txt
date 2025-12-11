@@ -1,0 +1,382 @@
+2025-12-11 20:16:47,865 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.100.6:8000
+2025-12-11 20:16:47,866 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-11 20:16:47,870 - werkzeug - INFO -  * Restarting with stat
+2025-12-11 20:16:48,744 - werkzeug - WARNING -  * Debugger is active!
+2025-12-11 20:16:48,758 - werkzeug - INFO -  * Debugger PIN: 415-153-701
+2025-12-11 20:17:00,569 - __main__ - INFO - Processing uploaded file: test_doc.txt
+2025-12-11 20:17:00,570 - __main__ - INFO - Temp path: C:\Users\tariq\AppData\Local\Temp\tmpxoe84e3d\test_doc.txt
+2025-12-11 20:17:00,572 - __main__ - INFO - Extracting text from test_doc.txt...
+2025-12-11 20:17:00,576 - __main__ - INFO - Extracted 83 characters
+2025-12-11 20:17:00,577 - __main__ - INFO - Chunking text...
+2025-12-11 20:17:00,578 - __main__ - INFO - Created 1 chunks
+2025-12-11 20:17:00,580 - __main__ - INFO - Processed file test_doc.txt: doc_id=7218ab68ef214e5cb49c18f12ef1595a, chunks=1
+2025-12-11 20:17:18,669 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-12-11 20:17:18,670 - faiss.loader - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2025-12-11 20:17:18,670 - faiss.loader - INFO - Loading faiss.
+2025-12-11 20:17:18,708 - faiss.loader - INFO - Successfully loaded faiss.
+2025-12-11 20:17:18,722 - __main__ - INFO - Re-indexing from chunks_dir: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:17:18,722 - __main__ - INFO - Index path: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:17:18,723 - embed_and_index - INFO - Initializing EmbeddingIndexer with model: all-MiniLM-L6-v2
+2025-12-11 20:17:18,725 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-12-11 20:17:18,726 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-11 20:17:23,196 - embed_and_index - INFO - Loading chunks from doc_id: 067733efc46540ea94c76ed796d8e9c2
+2025-12-11 20:17:23,248 - embed_and_index - INFO - Loading chunks from doc_id: 46392db621984e2ab7edeec4ec0bb127
+2025-12-11 20:17:24,677 - embed_and_index - INFO - Loading chunks from doc_id: 4d0b7c7305b94c0f9da5dbe774969bb3
+2025-12-11 20:17:24,693 - embed_and_index - INFO - Loading chunks from doc_id: 4e68b4d909fb4ffb9536e29e97cccb3d
+2025-12-11 20:17:24,708 - embed_and_index - INFO - Loading chunks from doc_id: 5078b775117e4f00b5ecdc3bfd15404f
+2025-12-11 20:17:26,122 - embed_and_index - INFO - Loading chunks from doc_id: 697c3a29a5bf40d38f08f0d570ce318c
+2025-12-11 20:17:26,153 - embed_and_index - INFO - Loading chunks from doc_id: 7218ab68ef214e5cb49c18f12ef1595a
+2025-12-11 20:17:26,194 - embed_and_index - INFO - Loading chunks from doc_id: ce0a3669f42843ac9fb1523c9ccdb591
+2025-12-11 20:17:26,238 - embed_and_index - INFO - Loading chunks from doc_id: d3211bf8f222440aa3f9bcbb4294750a
+2025-12-11 20:17:28,043 - embed_and_index - INFO - Loading chunks from doc_id: de51733df7b74997868f60f8f3a54f9c
+2025-12-11 20:17:28,064 - embed_and_index - INFO - Loaded 262 chunks from E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:17:28,065 - embed_and_index - INFO - Generating embeddings for 262 chunks...
+Batches:   0%|          | 0/9 [00:00<?, ?it/s]Batches:  11%|█         | 1/9 [00:04<00:35,  4.39s/it]Batches:  22%|██▏       | 2/9 [00:08<00:29,  4.24s/it]Batches:  33%|███▎      | 3/9 [00:12<00:24,  4.04s/it]Batches:  44%|████▍     | 4/9 [00:16<00:19,  3.99s/it]Batches:  56%|█████▌    | 5/9 [00:20<00:15,  3.94s/it]Batches:  67%|██████▋   | 6/9 [00:25<00:12,  4.28s/it]Batches:  78%|███████▊  | 7/9 [00:29<00:08,  4.26s/it]Batches:  89%|████████▉ | 8/9 [00:33<00:04,  4.14s/it]Batches: 100%|██████████| 9/9 [00:33<00:00,  3.69s/it]
+2025-12-11 20:18:01,403 - embed_and_index - INFO - Generated embeddings with shape: (262, 384)
+2025-12-11 20:18:01,409 - embed_and_index - INFO - Built FAISS index with 262 vectors
+2025-12-11 20:18:01,416 - embed_and_index - INFO - Saved index to E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:18:01,417 - embed_and_index - INFO -   - Index file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\faiss.index
+2025-12-11 20:18:01,417 - embed_and_index - INFO -   - Metadata file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\metadata.pkl
+2025-12-11 20:18:01,418 - __main__ - INFO - Re-indexed 262 chunks
+2025-12-11 20:18:01,420 - __main__ - INFO - Full pipeline query: 'What is this document about?...' with 1 new docs
+2025-12-11 20:18:01,421 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:18:01,422 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'What is this document about?'
+2025-12-11 20:18:01,423 - orchestrator.rag_orchestrator - INFO - Document IDs: ['7218ab68ef214e5cb49c18f12ef1595a']
+2025-12-11 20:18:01,424 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:18:01,424 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:18:01,424 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:18:01,425 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'What is this document about?' from docs: ['7218ab68ef214e5cb49c18f12ef1595a']
+2025-12-11 20:18:03,635 - orchestrator.retrieval_service - INFO - Successfully retrieved 0 chunks
+2025-12-11 20:18:03,636 - orchestrator.rag_orchestrator - INFO - Retrieved 0 chunks
+2025-12-11 20:18:03,636 - orchestrator.rag_orchestrator - WARNING - No chunks retrieved, returning empty response
+2025-12-11 20:18:03,638 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:18:03] "POST /rag/full HTTP/1.1" 200 -
+2025-12-11 20:18:35,951 - werkzeug - INFO -  * Detected change in 'E:\\nlp-project\\MedLaw\\pipeline\\rag-orchestrator\\test_upload.py', reloading
+2025-12-11 20:18:38,069 - werkzeug - INFO -  * Restarting with stat
+2025-12-11 20:18:38,830 - werkzeug - WARNING -  * Debugger is active!
+2025-12-11 20:18:38,842 - werkzeug - INFO -  * Debugger PIN: 415-153-701
+2025-12-11 20:22:07,042 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:22:07,042 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:22:07,043 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:22:07,043 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:22:07,044 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:22:07,044 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:22:07,045 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:22:07,045 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:22:09,236 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:22:09,237 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:22:09,240 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:22:09,242 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:22:09,243 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:22:09,295 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 18093 chars)
+2025-12-11 20:22:09,296 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:22:09,296 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:22:11,414 - model.model_api - INFO - Groq API call successful (output length: 2331 chars)
+2025-12-11 20:22:11,417 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 2331 chars)
+2025-12-11 20:22:11,417 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:22:11,418 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:22:11,419 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:22:11,419 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:22:11,419 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:22:11,421 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:22:11] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:22:24,961 - __main__ - INFO - Processing uploaded file: Automated_Regulatory_Compliance_SaaS_for_MedTech_Startups.pdf
+2025-12-11 20:22:24,961 - __main__ - INFO - Temp path: C:\Users\tariq\AppData\Local\Temp\tmprh9pcg63\Automated_Regulatory_Compliance_SaaS_for_MedTech_Startups.pdf
+2025-12-11 20:22:24,963 - __main__ - INFO - Extracting text from Automated_Regulatory_Compliance_SaaS_for_MedTech_Startups.pdf...
+2025-12-11 20:22:28,691 - __main__ - INFO - Extracted 22829 characters
+2025-12-11 20:22:28,692 - __main__ - INFO - Chunking text...
+2025-12-11 20:22:28,693 - __main__ - INFO - Created 8 chunks
+2025-12-11 20:22:28,707 - __main__ - INFO - Processed file Automated_Regulatory_Compliance_SaaS_for_MedTech_Startups.pdf: doc_id=9a749f738ccf4b72bb700bd4629b806f, chunks=8
+2025-12-11 20:22:45,932 - faiss.loader - INFO - Loading faiss with AVX2 support.
+2025-12-11 20:22:45,933 - faiss.loader - INFO - Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2025-12-11 20:22:45,933 - faiss.loader - INFO - Loading faiss.
+2025-12-11 20:22:45,965 - faiss.loader - INFO - Successfully loaded faiss.
+2025-12-11 20:22:45,973 - __main__ - INFO - Re-indexing from chunks_dir: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:22:45,973 - __main__ - INFO - Index path: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:22:45,974 - embed_and_index - INFO - Initializing EmbeddingIndexer with model: all-MiniLM-L6-v2
+2025-12-11 20:22:45,981 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-12-11 20:22:45,982 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-11 20:22:51,450 - embed_and_index - INFO - Loading chunks from doc_id: 067733efc46540ea94c76ed796d8e9c2
+2025-12-11 20:22:51,477 - embed_and_index - INFO - Loading chunks from doc_id: 46392db621984e2ab7edeec4ec0bb127
+2025-12-11 20:22:51,506 - embed_and_index - INFO - Loading chunks from doc_id: 4d0b7c7305b94c0f9da5dbe774969bb3
+2025-12-11 20:22:51,507 - embed_and_index - INFO - Loading chunks from doc_id: 4e68b4d909fb4ffb9536e29e97cccb3d
+2025-12-11 20:22:51,508 - embed_and_index - INFO - Loading chunks from doc_id: 5078b775117e4f00b5ecdc3bfd15404f
+2025-12-11 20:22:51,537 - embed_and_index - INFO - Loading chunks from doc_id: 697c3a29a5bf40d38f08f0d570ce318c
+2025-12-11 20:22:51,538 - embed_and_index - INFO - Loading chunks from doc_id: 7218ab68ef214e5cb49c18f12ef1595a
+2025-12-11 20:22:51,539 - embed_and_index - INFO - Loading chunks from doc_id: 9a749f738ccf4b72bb700bd4629b806f
+2025-12-11 20:22:51,707 - embed_and_index - INFO - Loading chunks from doc_id: ce0a3669f42843ac9fb1523c9ccdb591
+2025-12-11 20:22:51,708 - embed_and_index - INFO - Loading chunks from doc_id: d3211bf8f222440aa3f9bcbb4294750a
+2025-12-11 20:22:51,727 - embed_and_index - INFO - Loading chunks from doc_id: de51733df7b74997868f60f8f3a54f9c
+2025-12-11 20:22:51,732 - embed_and_index - INFO - Loaded 270 chunks from E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:22:51,733 - embed_and_index - INFO - Generating embeddings for 270 chunks...
+Batches:   0%|          | 0/9 [00:00<?, ?it/s]Batches:  11%|█         | 1/9 [00:04<00:37,  4.71s/it]Batches:  22%|██▏       | 2/9 [00:09<00:31,  4.54s/it]Batches:  33%|███▎      | 3/9 [00:13<00:26,  4.42s/it]Batches:  44%|████▍     | 4/9 [00:17<00:21,  4.36s/it]Batches:  56%|█████▌    | 5/9 [00:22<00:17,  4.35s/it]Batches:  67%|██████▋   | 6/9 [00:26<00:13,  4.37s/it]Batches:  78%|███████▊  | 7/9 [00:30<00:08,  4.35s/it]Batches:  89%|████████▉ | 8/9 [00:35<00:04,  4.59s/it]Batches: 100%|██████████| 9/9 [00:37<00:00,  3.80s/it]Batches: 100%|██████████| 9/9 [00:37<00:00,  4.21s/it]
+2025-12-11 20:23:29,722 - embed_and_index - INFO - Generated embeddings with shape: (270, 384)
+2025-12-11 20:23:29,724 - embed_and_index - INFO - Built FAISS index with 270 vectors
+2025-12-11 20:23:29,734 - embed_and_index - INFO - Saved index to E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:23:29,735 - embed_and_index - INFO -   - Index file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\faiss.index
+2025-12-11 20:23:29,735 - embed_and_index - INFO -   - Metadata file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\metadata.pkl
+2025-12-11 20:23:29,735 - __main__ - INFO - Re-indexed 270 chunks
+2025-12-11 20:23:29,736 - __main__ - INFO - Full pipeline query: 'I want to know how to set up an X-ray machine at m...' with 1 new docs
+2025-12-11 20:23:29,737 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:23:29,737 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:23:29,737 - orchestrator.rag_orchestrator - INFO - Document IDs: ['9a749f738ccf4b72bb700bd4629b806f']
+2025-12-11 20:23:29,738 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:23:29,738 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:23:29,738 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:23:29,738 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['9a749f738ccf4b72bb700bd4629b806f']
+2025-12-11 20:23:32,089 - orchestrator.retrieval_service - INFO - Successfully retrieved 0 chunks
+2025-12-11 20:23:32,089 - orchestrator.rag_orchestrator - INFO - Retrieved 0 chunks
+2025-12-11 20:23:32,090 - orchestrator.rag_orchestrator - WARNING - No chunks retrieved, returning empty response
+2025-12-11 20:23:32,091 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:23:32] "POST /rag/full HTTP/1.1" 200 -
+2025-12-11 20:23:45,996 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:23:45,997 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:23:45,998 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:23:45,998 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:23:45,999 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:23:45,999 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:23:46,000 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:23:46,001 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:23:48,192 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:23:48,193 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:23:48,194 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:23:48,194 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:23:48,195 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:23:48,208 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 18093 chars)
+2025-12-11 20:23:48,209 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:23:48,209 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:23:50,693 - model.model_api - INFO - Groq API call successful (output length: 2610 chars)
+2025-12-11 20:23:50,697 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 2610 chars)
+2025-12-11 20:23:50,697 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:23:50,698 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:23:50,702 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:23:50,703 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:23:50,705 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:23:50,706 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:23:50] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:23:59,365 - __main__ - INFO - Processing uploaded file: 02IFUz-z953856588564.pdf
+2025-12-11 20:23:59,365 - __main__ - INFO - Temp path: C:\Users\tariq\AppData\Local\Temp\tmpgpknpk88\02IFUz-z953856588564.pdf
+2025-12-11 20:23:59,406 - __main__ - INFO - Extracting text from 02IFUz-z953856588564.pdf...
+2025-12-11 20:25:12,888 - __main__ - INFO - Extracted 199643 characters
+2025-12-11 20:25:12,895 - __main__ - INFO - Chunking text...
+2025-12-11 20:25:12,911 - __main__ - INFO - Created 64 chunks
+2025-12-11 20:25:13,152 - __main__ - INFO - Processed file 02IFUz-z953856588564.pdf: doc_id=9e781a64a61f4f5ea967f5d612667688, chunks=64
+2025-12-11 20:25:13,155 - __main__ - INFO - Re-indexing from chunks_dir: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:25:13,155 - __main__ - INFO - Index path: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:25:13,156 - embed_and_index - INFO - Initializing EmbeddingIndexer with model: all-MiniLM-L6-v2
+2025-12-11 20:25:13,171 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-12-11 20:25:13,171 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-11 20:25:20,300 - embed_and_index - INFO - Loading chunks from doc_id: 067733efc46540ea94c76ed796d8e9c2
+2025-12-11 20:25:20,350 - embed_and_index - INFO - Loading chunks from doc_id: 46392db621984e2ab7edeec4ec0bb127
+2025-12-11 20:25:20,400 - embed_and_index - INFO - Loading chunks from doc_id: 4d0b7c7305b94c0f9da5dbe774969bb3
+2025-12-11 20:25:20,401 - embed_and_index - INFO - Loading chunks from doc_id: 4e68b4d909fb4ffb9536e29e97cccb3d
+2025-12-11 20:25:20,402 - embed_and_index - INFO - Loading chunks from doc_id: 5078b775117e4f00b5ecdc3bfd15404f
+2025-12-11 20:25:20,449 - embed_and_index - INFO - Loading chunks from doc_id: 697c3a29a5bf40d38f08f0d570ce318c
+2025-12-11 20:25:20,451 - embed_and_index - INFO - Loading chunks from doc_id: 7218ab68ef214e5cb49c18f12ef1595a
+2025-12-11 20:25:20,452 - embed_and_index - INFO - Loading chunks from doc_id: 9a749f738ccf4b72bb700bd4629b806f
+2025-12-11 20:25:20,460 - embed_and_index - INFO - Loading chunks from doc_id: 9e781a64a61f4f5ea967f5d612667688
+2025-12-11 20:25:22,544 - embed_and_index - INFO - Loading chunks from doc_id: ce0a3669f42843ac9fb1523c9ccdb591
+2025-12-11 20:25:22,549 - embed_and_index - INFO - Loading chunks from doc_id: d3211bf8f222440aa3f9bcbb4294750a
+2025-12-11 20:25:22,606 - embed_and_index - INFO - Loading chunks from doc_id: de51733df7b74997868f60f8f3a54f9c
+2025-12-11 20:25:22,607 - embed_and_index - INFO - Loaded 334 chunks from E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\storage\chunks
+2025-12-11 20:25:22,608 - embed_and_index - INFO - Generating embeddings for 334 chunks...
+Batches:   0%|          | 0/11 [00:00<?, ?it/s]Batches:   9%|▉         | 1/11 [00:05<00:54,  5.47s/it]Batches:  18%|█▊        | 2/11 [00:09<00:44,  4.89s/it]Batches:  27%|██▋       | 3/11 [00:14<00:37,  4.73s/it]Batches:  36%|███▋      | 4/11 [00:18<00:32,  4.58s/it]Batches:  45%|████▌     | 5/11 [00:23<00:26,  4.46s/it]Batches:  55%|█████▍    | 6/11 [00:27<00:22,  4.48s/it]Batches:  64%|██████▎   | 7/11 [00:31<00:17,  4.45s/it]Batches:  73%|███████▎  | 8/11 [00:36<00:13,  4.48s/it]Batches:  82%|████████▏ | 9/11 [00:40<00:08,  4.46s/it]Batches:  91%|█████████ | 10/11 [00:45<00:04,  4.44s/it]Batches: 100%|██████████| 11/11 [00:47<00:00,  3.68s/it]Batches: 100%|██████████| 11/11 [00:47<00:00,  4.30s/it]
+2025-12-11 20:26:10,184 - embed_and_index - INFO - Generated embeddings with shape: (334, 384)
+2025-12-11 20:26:10,190 - embed_and_index - INFO - Built FAISS index with 334 vectors
+2025-12-11 20:26:10,203 - embed_and_index - INFO - Saved index to E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index
+2025-12-11 20:26:10,203 - embed_and_index - INFO -   - Index file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\faiss.index
+2025-12-11 20:26:10,204 - embed_and_index - INFO -   - Metadata file: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\..\embed-and-vec-search\vector_index\metadata.pkl
+2025-12-11 20:26:10,204 - __main__ - INFO - Re-indexed 334 chunks
+2025-12-11 20:26:10,205 - __main__ - INFO - Full pipeline query: 'I want to know how to set up an X-ray machine at m...' with 1 new docs
+2025-12-11 20:26:10,206 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:26:10,206 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:26:10,207 - orchestrator.rag_orchestrator - INFO - Document IDs: ['9e781a64a61f4f5ea967f5d612667688']
+2025-12-11 20:26:10,207 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:26:10,207 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:26:10,208 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:26:10,211 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['9e781a64a61f4f5ea967f5d612667688']
+2025-12-11 20:26:12,626 - orchestrator.retrieval_service - INFO - Successfully retrieved 0 chunks
+2025-12-11 20:26:12,626 - orchestrator.rag_orchestrator - INFO - Retrieved 0 chunks
+2025-12-11 20:26:12,627 - orchestrator.rag_orchestrator - WARNING - No chunks retrieved, returning empty response
+2025-12-11 20:26:12,637 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:26:12] "POST /rag/full HTTP/1.1" 200 -
+2025-12-11 20:32:18,949 - __main__ - INFO - RAG query: 'I want to know how to set up an Defibrillator mach...' template=qa
+2025-12-11 20:32:18,949 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:32:18,949 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an Defibrillator machine at my local clinic that I've just opened'
+2025-12-11 20:32:18,950 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:32:18,950 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:32:18,950 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:32:18,951 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:32:18,951 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an Defibrillator machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:32:21,069 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:32:21,070 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:32:21,071 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:32:21,074 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:32:21,076 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:32:21,092 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 17765 chars)
+2025-12-11 20:32:21,094 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:32:21,095 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:32:22,955 - model.model_api - INFO - Groq API call successful (output length: 1926 chars)
+2025-12-11 20:32:22,959 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 1926 chars)
+2025-12-11 20:32:22,959 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:32:22,960 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:32:22,960 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:32:22,961 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:32:22,961 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:32:22,962 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:32:22] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:34:06,073 - werkzeug - INFO -  * Detected change in 'E:\\nlp-project\\MedLaw\\pipeline\\embed-and-vec-search\\embed_and_index.py', reloading
+2025-12-11 20:34:12,796 - werkzeug - INFO -  * Restarting with stat
+2025-12-11 20:34:13,901 - werkzeug - WARNING -  * Debugger is active!
+2025-12-11 20:34:13,922 - werkzeug - INFO -  * Debugger PIN: 415-153-701
+2025-12-11 20:35:23,944 - werkzeug - INFO -  * Detected change in 'E:\\nlp-project\\MedLaw\\pipeline\\embed-and-vec-search\\embed_and_index.py', reloading
+2025-12-11 20:35:24,139 - werkzeug - INFO -  * Restarting with stat
+2025-12-11 20:35:30,473 - werkzeug - WARNING -  * Debugger is active!
+2025-12-11 20:35:30,496 - werkzeug - INFO -  * Debugger PIN: 415-153-701
+2025-12-11 20:36:12,430 - __main__ - INFO - RAG query: 'I want to know how to set up an Defibrillator mach...' template=qa
+2025-12-11 20:36:12,431 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:12,432 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an Defibrillator machine at my local clinic that I've just opened'
+2025-12-11 20:36:12,433 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:36:12,435 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:36:12,435 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:12,436 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:36:12,437 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an Defibrillator machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:36:14,617 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:36:14,618 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:36:14,620 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:36:14,621 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:36:14,621 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:36:14,639 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 17454 chars)
+2025-12-11 20:36:14,640 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:36:14,640 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:36:16,382 - model.model_api - INFO - Groq API call successful (output length: 2296 chars)
+2025-12-11 20:36:16,384 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 2296 chars)
+2025-12-11 20:36:16,385 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:36:16,385 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:36:16,386 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:36:16,387 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:36:16,387 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:16,388 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:36:16] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:36:22,799 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:36:22,799 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:22,800 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:36:22,800 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:36:22,801 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:36:22,801 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:22,802 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:36:22,802 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:36:24,890 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:36:24,890 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:36:24,891 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:36:24,892 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:36:24,892 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:36:24,901 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 2161 chars)
+2025-12-11 20:36:24,902 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:36:24,902 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:36:26,315 - model.model_api - INFO - Groq API call successful (output length: 1833 chars)
+2025-12-11 20:36:26,317 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 1833 chars)
+2025-12-11 20:36:26,318 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:36:26,318 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:36:26,319 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:36:26,319 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:36:26,320 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:36:26,320 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:36:26] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:38:22,087 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:38:22,087 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:22,088 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:38:22,088 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:38:22,089 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:38:22,089 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:22,089 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:38:22,090 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:38:24,552 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:38:24,553 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:38:24,554 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:38:24,554 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:38:24,555 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:38:24,564 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 2161 chars)
+2025-12-11 20:38:24,566 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:38:24,567 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:38:26,052 - model.model_api - INFO - Groq API call successful (output length: 1933 chars)
+2025-12-11 20:38:26,057 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 1933 chars)
+2025-12-11 20:38:26,057 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:38:26,058 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:38:26,059 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:38:26,059 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:38:26,060 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:26,061 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:38:26] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:38:34,506 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:38:34,507 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:34,507 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:38:34,508 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:38:34,508 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:38:34,509 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:34,514 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:38:34,515 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:38:36,841 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:38:36,841 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:38:36,842 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:38:36,842 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:38:36,842 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:38:36,850 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 2161 chars)
+2025-12-11 20:38:36,851 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:38:36,851 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:38:38,341 - model.model_api - INFO - Groq API call successful (output length: 1683 chars)
+2025-12-11 20:38:38,343 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 1683 chars)
+2025-12-11 20:38:38,344 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:38:38,344 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:38:38,344 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:38:38,345 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:38:38,345 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:38:38,346 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:38:38] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:40:40,199 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:40:40,199 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:40:40,200 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:40:40,200 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:40:40,201 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:40:40,201 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:40:40,201 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:40:40,202 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:40:42,612 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:40:42,613 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:40:42,618 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:40:42,619 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:40:42,620 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:40:42,625 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 2161 chars)
+2025-12-11 20:40:42,625 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:40:42,626 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:40:43,812 - model.model_api - INFO - Groq API call successful (output length: 1457 chars)
+2025-12-11 20:40:43,816 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 1457 chars)
+2025-12-11 20:40:43,816 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:40:43,816 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:40:43,817 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:40:43,817 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:40:43,818 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:40:43,819 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:40:43] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:41:18,102 - __main__ - INFO - RAG query: 'I want to know how to set up an X-ray machine at m...' template=qa
+2025-12-11 20:41:18,103 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:41:18,104 - orchestrator.rag_orchestrator - INFO - Starting RAG orchestration for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened'
+2025-12-11 20:41:18,104 - orchestrator.rag_orchestrator - INFO - Document IDs: ['default']
+2025-12-11 20:41:18,105 - orchestrator.rag_orchestrator - INFO - Template type: qa
+2025-12-11 20:41:18,105 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:41:18,105 - orchestrator.rag_orchestrator - INFO - STEP 1: Retrieving chunks from vector search
+2025-12-11 20:41:18,106 - orchestrator.retrieval_service - INFO - Retrieving chunks for query: 'I want to know how to set up an X-ray machine at my local clinic that I've just opened' from docs: ['default']
+2025-12-11 20:41:20,187 - orchestrator.retrieval_service - INFO - Successfully retrieved 5 chunks
+2025-12-11 20:41:20,188 - orchestrator.rag_orchestrator - INFO - Retrieved 5 chunks
+2025-12-11 20:41:20,188 - orchestrator.rag_orchestrator - INFO - STEP 2: Composing prompt from template
+2025-12-11 20:41:20,189 - orchestrator.prompt_builder - INFO - PromptBuilder initialized with templates from: E:\nlp-project\MedLaw\pipeline\rag-orchestrator\prompts
+2025-12-11 20:41:20,189 - orchestrator.prompt_builder - INFO - Composing prompt using template: qa_prompt.jinja
+2025-12-11 20:41:20,196 - orchestrator.rag_orchestrator - INFO - Prompt composed (length: 2161 chars)
+2025-12-11 20:41:20,197 - orchestrator.rag_orchestrator - INFO - STEP 3: Calling LLM (Grok API)
+2025-12-11 20:41:20,199 - model.model_api - INFO - Calling Groq API
+2025-12-11 20:41:21,783 - model.model_api - INFO - Groq API call successful (output length: 2300 chars)
+2025-12-11 20:41:21,785 - orchestrator.rag_orchestrator - INFO - LLM response received (length: 2300 chars)
+2025-12-11 20:41:21,785 - orchestrator.rag_orchestrator - INFO - STEP 4: Parsing LLM output
+2025-12-11 20:41:21,786 - orchestrator.output_parser - INFO - Parsing LLM output
+2025-12-11 20:41:21,786 - orchestrator.output_parser - INFO - Successfully extracted JSON from markdown
+2025-12-11 20:41:21,786 - orchestrator.rag_orchestrator - INFO - RAG orchestration completed successfully
+2025-12-11 20:41:21,787 - orchestrator.rag_orchestrator - INFO - ============================================================
+2025-12-11 20:41:21,787 - werkzeug - INFO - 127.0.0.1 - - [11/Dec/2025 20:41:21] "POST /rag/query HTTP/1.1" 200 -
+2025-12-11 20:43:18,633 - werkzeug - INFO -  * Detected change in 'E:\\nlp-project\\MedLaw\\pipeline\\embed-and-vec-search\\vector_search_api.py', reloading
+2025-12-11 20:43:19,228 - werkzeug - INFO -  * Restarting with stat
+2025-12-11 20:43:26,653 - werkzeug - WARNING -  * Debugger is active!
+2025-12-11 20:43:26,687 - werkzeug - INFO -  * Debugger PIN: 415-153-701

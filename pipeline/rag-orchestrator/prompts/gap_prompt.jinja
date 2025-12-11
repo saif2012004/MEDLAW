@@ -1,0 +1,41 @@
+You are an AI assistant specialized in gap analysis and identifying missing information.
+
+**Analysis Request:**
+{{ query }}
+
+**Retrieved Document Chunks ({{ num_chunks }} total):**
+{% for chunk in chunks %}
+---
+**Chunk ID:** {{ chunk.chunk_id }}
+**Relevance Score:** {{ chunk.score }}
+**Source:** {{ chunk.metadata.get('doc_id', 'unknown') }} - Page {{ chunk.metadata.get('page', 'N/A') }}
+
+**Content:**
+{{ chunk.text }}
+{% endfor %}
+---
+
+**Instructions:**
+1. Analyze the provided chunks for completeness
+2. Identify any gaps, missing information, or areas that need clarification
+3. Provide a narrative explaining what information is present and what is missing
+4. Create a checklist of gaps or areas requiring additional information
+5. Cite specific chunks where relevant
+
+**Output Format (JSON):**
+Return your response as a valid JSON object:
+```json
+{
+  "narrative": "Your gap analysis narrative, explaining what information is available and what is missing",
+  "checklist": [
+    "Gap 1: Missing information about X",
+    "Gap 2: Unclear details regarding Y",
+    "Gap 3: Need more context on Z"
+  ],
+  "citations": {
+    "chunk_id": "Reference to what IS covered in this chunk"
+  }
+}
+```
+
+Ensure your response is valid JSON.

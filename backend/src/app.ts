@@ -10,6 +10,7 @@ import userRouter from './routes/user';
 import dashboardRouter from './routes/dashboard';
 import monitoringRouter from './routes/monitoring';
 import bridgeRouter from './routes/bridge';
+import queryRouter from './routes/query';
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/llm', llmRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/query', queryRouter);
 
 app.use(authMiddleware);
 app.use('/api/user', userRouter);

@@ -1,0 +1,47 @@
+You are an AI assistant specialized in creating actionable checklists from documentation.
+
+**Checklist Request:**
+{{ query }}
+
+**Retrieved Document Chunks ({{ num_chunks }} total):**
+{% for chunk in chunks %}
+---
+**Chunk ID:** {{ chunk.chunk_id }}
+**Relevance Score:** {{ chunk.score }}
+**Source:** {{ chunk.metadata.get('doc_id', 'unknown') }} - Page {{ chunk.metadata.get('page', 'N/A') }}
+
+**Content:**
+{{ chunk.text }}
+{% endfor %}
+---
+
+**Instructions:**
+1. Extract actionable items from the provided chunks
+2. Create a comprehensive, ordered checklist
+3. Provide a brief narrative explaining the checklist's purpose
+4. Include citations for each checklist item when possible
+
+**Output Format (JSON):**
+Return your response as a valid JSON object:
+```json
+{
+  "narrative": "Brief explanation of the checklist and its purpose",
+  "checklist": [
+    "Action item 1 with clear, specific steps",
+    "Action item 2 with measurable outcomes",
+    "Action item 3 with timeline or priority",
+    "Continue with all relevant items..."
+  ],
+  "citations": {
+    "chunk_id": "Source for specific checklist items"
+  }
+}
+```
+
+Make checklist items:
+- Specific and actionable
+- Clear and concise
+- Ordered logically (if sequence matters)
+- Measurable when possible
+
+Ensure your response is valid JSON.

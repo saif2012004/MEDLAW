@@ -1,0 +1,74 @@
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================
+ * Serving Flask app 'api'
+ * Debug mode: on
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================
+============================================================
+RAG Orchestrator API
+============================================================
+Starting server on http://0.0.0.0:8000
+Mock mode: False
+
+Endpoints:
+  GET  /health     - Health check
+  POST /rag/query  - Run RAG query
+  POST /rag/upload - Upload and process files
+  POST /rag/full   - Full pipeline (upload + query)
+============================================================

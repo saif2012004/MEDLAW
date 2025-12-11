@@ -1,388 +1,229 @@
-# Person 4: RAG Orchestrator 🔄 PLACEHOLDER
+# RAG Orchestrator - Module 4 & 5
 
-RAG (Retrieval-Augmented Generation) orchestration for MedLaw Regulatory Copilot.
+A complete, modular RAG (Retrieval-Augmented Generation) orchestrator with Grok API integration.
 
-## 📋 Status
-
-**🔄 AWAITING IMPLEMENTATION**
-
-This module will be implemented by Person 4. The structure and integration points are defined below.
-
-## 🎯 Responsibilities
-
-1. **Retrieval Logic**: Call Person 3's vector search API
-2. **Prompt Assembly**: Combine retrieved chunks + user query + instructions
-3. **LLM Integration**: Call Person 5's LLM wrapper API
-4. **Post-Processing**: Parse LLM output into structured format
-5. **Citation Mapping**: Link checklist items to source chunks
-
-## 🏗️ Expected Structure
+## 📁 Project Structure
 
 ```
-rag-orchestrator/
-├── __init__.py
-├── orchestrator.py      # Main RAG pipeline
-├── prompts.py           # Prompt templates
-├── post_processor.py    # LLM output parsing
-├── test_orchestrator.py # Unit tests
-└── README.md
+project/
+├── main.py                          # Main demo runner
+├── config.py                        # Configuration and settings
+├── requirements.txt                 # Python dependencies
+├── .env.example                     # Environment variables template
+│
+├── orchestrator/                    # Module 4: RAG Orchestrator
+│   ├── __init__.py
+│   ├── rag_orchestrator.py         # Main orchestration logic
+│   ├── retrieval_service.py        # Vector search API client
+│   ├── prompt_builder.py           # Jinja2 template renderer
+│   └── output_parser.py            # LLM output parser
+│
+├── prompts/                         # Jinja2 templates
+│   ├── qa_prompt.jinja             # Q&A template
+│   ├── gap_prompt.jinja            # Gap analysis template
+│   └── checklist_prompt.jinja      # Checklist generation template
+│
+├── model/                           # Module 5: Model API Wrapper
+│   ├── __init__.py
+│   └── model_api.py                # Grok API wrapper
+│
+└── tests/                           # Unit tests
+    ├── test_rag_orchestrator.py
+    ├── test_output_parser.py
+    └── test_prompt_builder.py
 ```
 
-## 📡 Integration Points
+## 🚀 Installation
 
-### Input: User Query
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Configure Environment
+
+Copy `.env.example` to `.env` and add your Grok API key:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+```
+GROK_API_KEY=your_actual_grok_api_key_here
+MOCK_MODE=False
+```
+
+**For testing without API keys**, set `MOCK_MODE=True`
+
+## 🎯 Usage
+
+### Quick Start (Demo Mode)
+
+Run the demo with mock data (no API keys required):
+
+```bash
+python main.py
+```
+
+Select from the menu:
+- **1**: Question Answering demo
+- **2**: Gap Analysis demo
+- **3**: Checklist Generation demo
+- **4**: Interactive mode
+- **5**: Run all demos
+
+### Programmatic Usage
+
 ```python
-{
-    "query": "What are GMP compliance requirements?",
-    "doc_ids": ["doc_1", "doc_2"],  # Optional: filter specific documents
-    "options": {
-        "max_chunks": 5,
-        "temperature": 0.1
-    }
-}
+from orchestrator import run
+
+# Basic Q&A
+result = run(
+    query="What are the key features?",
+    doc_ids=["doc1", "doc2"],
+    template_type="qa"
+)
+
+print(result["narrative"])
+print(result["checklist"])
+print(result["citations"])
 ```
 
-### Person 3 API Call (Vector Search)
-```python
-import requests
+### Template Types
 
-def retrieve_chunks(query: str, k: int = 5):
-    """Call Person 3's vector search API."""
-    response = requests.post(
-        'http://localhost:5001/vector/search',
-        json={'query': query, 'k': k}
-    )
-    return response.json()['results']
+- **`qa`**: Question answering
+- **`gap`**: Gap analysis
+- **`checklist`**: Checklist generation
+
+## 🧪 Running Tests
+
+Run all tests:
+
+```bash
+pytest tests/ -v
 ```
 
-### Person 5 API Call (LLM)
-```python
-import requests
+Run specific test file:
 
-def call_llm(prompt: str, temperature: float = 0.1):
-    """Call Person 5's LLM wrapper API."""
-    response = requests.post(
-        'http://localhost:3001/api/llm/generate',
-        json={
-            'prompt': prompt,
-            'temperature': temperature,
-            'max_tokens': 1000
-        }
-    )
-    return response.json()['text']
+```bash
+pytest tests/test_rag_orchestrator.py -v
 ```
 
-### Expected Output Format
+Run with coverage:
+
+```bash
+pytest tests/ --cov=orchestrator --cov=model -v
+```
+
+## 🔧 Configuration
+
+All configuration is in `config.py`. Key settings:
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GROK_API_KEY` | Your Grok API key | (required) |
+| `GROK_MODEL` | Model to use | `grok-beta` |
+| `VECTOR_SEARCH_URL` | Vector search endpoint | `http://localhost:8001/vector/search` |
+| `MOCK_MODE` | Use mock data | `False` |
+| `GROK_TIMEOUT` | API timeout (seconds) | `60` |
+| `GROK_MAX_TOKENS` | Max tokens to generate | `2048` |
+
+## 📚 Module Details
+
+### Module 4: RAG Orchestrator
+
+**Main Function**: `orchestrator.run(query, doc_ids, template_type)`
+
+**Pipeline**:
+1. **Retrieve**: Calls vector search API to get relevant chunks
+2. **Compose**: Builds prompt using Jinja2 templates
+3. **Infer**: Calls Grok API for generation
+4. **Parse**: Extracts structured JSON from output
+
+**Output Format**:
 ```json
 {
-    "narrative": "Based on the provided documents, GMP compliance requirements include...",
-    "checklist": [
-        {
-            "id": "check_1",
-            "requirement_text": "Documentation control system must be in place",
-            "status": "compliant|non_compliant|needs_review",
-            "confidence": 0.92,
-            "evidence": "chunk_7ba118f3_0",
-            "recommended_action": "Ensure SOPs are up to date"
-        }
-    ],
-    "citations": {
-        "chunk_7ba118f3_0": {
-            "source": "GMP_Guidelines.pdf",
-            "page": 5,
-            "text_preview": "Documentation systems must..."
-        }
-    },
-    "metadata": {
-        "chunks_retrieved": 5,
-        "processing_time_ms": 1234,
-        "llm_provider": "openai",
-        "model": "gpt-4"
-    }
+  "narrative": "Comprehensive answer...",
+  "checklist": ["item 1", "item 2"],
+  "citations": {
+    "doc1_chunk1": "citation text"
+  }
 }
 ```
 
-## 💡 Implementation Guide
+### Module 5: Model API Wrapper
 
-### Step 1: Retrieval
-```python
-def retrieve_relevant_context(query: str, k: int = 5) -> List[Dict]:
-    """Retrieve relevant chunks from vector search."""
-    chunks = retrieve_chunks(query, k)
-    return chunks
+**Main Function**: `model.model_api.infer(prompt)`
+
+Simple wrapper around Grok API that:
+- Handles authentication
+- Manages timeouts
+- Provides error handling
+- Supports mock mode for testing
+
+## 🔌 Integration with Other Modules
+
+### Person 3's Vector Search API
+
+Expected endpoint: `POST http://localhost:8001/vector/search`
+
+Request:
+```json
+{
+  "query": "search query",
+  "doc_ids": ["doc1", "doc2"]
+}
 ```
 
-### Step 2: Prompt Assembly
-```python
-def build_prompt(query: str, chunks: List[Dict]) -> str:
-    """Assemble prompt with context and instructions."""
-    
-    context = "\n\n".join([
-        f"[Document: {chunk['source']}, Page {chunk['page']}]\n{chunk['text']}"
-        for chunk in chunks
-    ])
-    
-    prompt = f"""You are a regulatory compliance expert for medical devices.
-
-Based on the following regulatory documents, answer the user's question.
-
-REGULATORY DOCUMENTS:
-{context}
-
-USER QUESTION:
-{query}
-
-Provide:
-1. A clear, concise narrative answer
-2. A structured compliance checklist
-3. Citations to specific document sections
-
-Format your response as JSON with fields: narrative, checklist, citations."""
-
-    return prompt
+Response:
+```json
+{
+  "chunks": [
+    {
+      "chunk_id": "doc1_chunk1",
+      "text": "chunk content",
+      "score": 0.95,
+      "metadata": {"doc_id": "doc1", "page": 1}
+    }
+  ]
+}
 ```
 
-### Step 3: LLM Call
-```python
-def generate_response(prompt: str) -> str:
-    """Call LLM API to generate response."""
-    llm_output = call_llm(prompt, temperature=0.1)
-    return llm_output
-```
+## 🛡️ Error Handling
 
-### Step 4: Post-Processing
-```python
-import json
-import re
+The system includes comprehensive error handling:
 
-def parse_llm_output(llm_output: str, chunks: List[Dict]) -> Dict:
-    """Parse LLM output into structured format."""
-    
-    try:
-        # Try to parse as JSON
-        parsed = json.loads(llm_output)
-    except json.JSONDecodeError:
-        # Fallback: extract JSON from markdown code blocks
-        json_match = re.search(r'```json\n(.*?)\n```', llm_output, re.DOTALL)
-        if json_match:
-            parsed = json.loads(json_match.group(1))
-        else:
-            # Last resort: return structured error
-            return {
-                "narrative": llm_output,
-                "checklist": [],
-                "citations": {},
-                "error": "Failed to parse structured output"
-            }
-    
-    # Map citations to chunk metadata
-    citations = {}
-    for chunk in chunks:
-        chunk_id = chunk['chunk_id']
-        citations[chunk_id] = {
-            "source": chunk['source'],
-            "page": chunk['page'],
-            "text_preview": chunk['text'][:150] + "..."
-        }
-    
-    parsed['citations'] = citations
-    return parsed
-```
+- **RetrievalError**: Vector search API failures
+- **PromptBuilderError**: Template rendering issues
+- **ModelAPIError**: Grok API failures
+- **OutputParserError**: Parsing failures
 
-### Step 5: Main Orchestrator
-```python
-def run_rag_pipeline(query: str, doc_ids: List[str] = None, k: int = 5) -> Dict:
-    """
-    Main RAG orchestration function.
-    
-    Args:
-        query: User's compliance question
-        doc_ids: Optional list of document IDs to filter
-        k: Number of chunks to retrieve
-        
-    Returns:
-        Structured response with narrative, checklist, citations
-    """
-    # 1. Retrieve relevant chunks
-    chunks = retrieve_relevant_context(query, k)
-    
-    if not chunks:
-        return {
-            "narrative": "No relevant information found.",
-            "checklist": [],
-            "citations": {},
-            "error": "No documents available"
-        }
-    
-    # 2. Build prompt
-    prompt = build_prompt(query, chunks)
-    
-    # 3. Call LLM
-    llm_output = generate_response(prompt)
-    
-    # 4. Parse and structure output
-    result = parse_llm_output(llm_output, chunks)
-    
-    return result
-```
+All errors are logged and propagated with context.
 
-## 📝 Prompt Templates (prompts.py)
+## 🧩 Mock Mode
 
-```python
-COMPLIANCE_CHECK_PROMPT = """You are a regulatory compliance expert for medical devices.
+For development/testing without external dependencies:
 
-Based on the following regulatory documents, analyze the user's question and provide:
-1. A clear narrative explanation
-2. A structured compliance checklist
-3. Citations to source documents
+1. Set `MOCK_MODE=True` in `.env`
+2. Run normally - mock data will be used
 
-REGULATORY CONTEXT:
-{context}
+Mock mode provides:
+- Simulated vector search results
+- Simulated LLM responses
+- Consistent test data
 
-USER QUESTION:
-{query}
+## 📝 License
 
-Respond in JSON format:
-{{
-    "narrative": "Your explanation here",
-    "checklist": [
-        {{
-            "id": "check_1",
-            "requirement_text": "Specific requirement",
-            "status": "compliant|non_compliant|needs_review",
-            "confidence": 0.0-1.0,
-            "evidence": "chunk_id",
-            "recommended_action": "What to do"
-        }}
-    ]
-}}
-"""
+MIT License - Free to use and modify
 
-GAP_ANALYSIS_PROMPT = """You are performing a regulatory gap analysis.
+## 👥 Team Integration
 
-Compare the provided documentation against {regulation} requirements.
-
-DOCUMENTS:
-{context}
-
-Identify:
-1. Requirements that are met
-2. Requirements that are missing
-3. Areas needing clarification
-
-Provide a structured gap analysis report."""
-
-QUERY_REFINEMENT_PROMPT = """The user asked: "{query}"
-
-This query is ambiguous. Suggest 2-3 clarifying multiple-choice options to help the user specify their intent."""
-```
-
-## 🧪 Testing
-
-```python
-# test_orchestrator.py
-
-import pytest
-from orchestrator import run_rag_pipeline
-
-def test_basic_query():
-    """Test basic RAG pipeline with mock data."""
-    result = run_rag_pipeline("What are GMP requirements?")
-    
-    assert 'narrative' in result
-    assert 'checklist' in result
-    assert 'citations' in result
-    assert len(result['checklist']) > 0
-
-def test_no_results():
-    """Test handling of no retrieval results."""
-    result = run_rag_pipeline("completely irrelevant query xyz123")
-    
-    assert 'error' in result or len(result['checklist']) == 0
-
-def test_citation_mapping():
-    """Test that citations are properly mapped to chunks."""
-    result = run_rag_pipeline("ISO 13485 requirements")
-    
-    for item in result['checklist']:
-        if 'evidence' in item:
-            assert item['evidence'] in result['citations']
-```
-
-## 🔗 API Endpoint (Optional)
-
-If Person 4 wants to expose this as an API:
-
-```python
-from flask import Flask, request, jsonify
-from orchestrator import run_rag_pipeline
-
-app = Flask(__name__)
-
-@app.route('/rag/analyze', methods=['POST'])
-def analyze():
-    """RAG analysis endpoint."""
-    data = request.json
-    query = data.get('query')
-    doc_ids = data.get('doc_ids')
-    k = data.get('k', 5)
-    
-    result = run_rag_pipeline(query, doc_ids, k)
-    return jsonify(result)
-
-if __name__ == '__main__':
-    app.run(port=5002)
-```
-
-## 📦 Dependencies (to add to ../requirements.txt)
-
-```txt
-# RAG Orchestrator (Person 4)
-langchain>=0.1.0        # Optional: RAG patterns
-openai>=1.0.0           # If calling LLM directly
-requests>=2.31.0        # API calls
-python-dotenv>=1.0.0    # Environment variables
-```
-
-## 🤝 Collaboration
-
-**From Person 3**:
-- Vector search API: `http://localhost:5001/vector/search`
-- Returns chunks with text, score, metadata
-
-**From Person 5**:
-- LLM API: `http://localhost:3001/api/llm/generate`
-- Returns generated text
-
-**To Person 1 (Frontend)**:
-- Structured response: narrative + checklist + citations
-- Can be consumed directly by dashboard
-
-**To Backend (Person 5/6)**:
-- Backend can call this orchestrator
-- Or Person 4 can expose as separate API
-
-## 🚀 Getting Started (for Person 4)
-
-1. Ensure Person 3's API is running: `curl http://localhost:5001/health`
-2. Ensure Person 5's LLM wrapper is available
-3. Implement `orchestrator.py` following the guide above
-4. Test with: `python orchestrator.py --query "test query"`
-5. Write unit tests
-6. Update this README with actual implementation details
-
-## 📞 Questions for Person 4
-
-Before starting, clarify:
-1. Should this be a standalone API or a library?
-2. Preferred LLM temperature for compliance (suggest 0.1 for determinism)?
-3. How to handle uncertain/ambiguous queries (MCQ to user)?
-4. Should we cache LLM responses to reduce API costs?
+- **Person 3**: Provides vector search API
+- **Person 4** (You): RAG orchestrator
+- **Person 5** (You): Model API wrapper
 
 ---
 
-**Status**: 🔄 Placeholder - Awaiting Person 4  
-**Priority**: High (needed for MVP)  
-**Estimated Time**: 3-5 days  
-**Dependencies**: Person 3 ✅, Person 5 (parallel work)
-
+**Questions?** Check the code comments or run `python main.py` for interactive demos!

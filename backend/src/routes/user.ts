@@ -15,7 +15,7 @@ router.get('/profile', (req, res) => {
 router.post('/orgForm', (req, res) => {
   const user = (req as any).user || {};
   const { name, size, deviceCategories, regulations } = req.body || {};
-  const organizationId = org_;
+  const organizationId = `org_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   orgForms[user.uid || 'dev'] = {
     organizationId,
     name,

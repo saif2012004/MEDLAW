@@ -12,9 +12,9 @@ app = Flask(__name__)
 # Initialize indexer (load existing index if present)
 indexer = EmbeddingIndexer()
 if indexer.load_index():
-    logger.info("✅ Loaded existing index with %d vectors", indexer.index.ntotal)
+    logger.info("[OK] Loaded existing index with %d vectors", indexer.index.ntotal)
 else:
-    logger.warning("⚠️  No index loaded. Run embed_and_index.py or POST /vector/index.")
+    logger.warning("[WARN] No index loaded. Run embed_and_index.py or POST /vector/index.")
 
 
 @app.route("/vector/index", methods=["POST"])
@@ -23,7 +23,7 @@ def index_documents():
     try:
         logger.info("Starting indexing job...")
 
-        chunks = indexer.load_chunks("./storage/chunks")
+        chunks = indexer.load_chunks("../storage/chunks")
         if not chunks:
             return (
                 jsonify(
@@ -39,7 +39,7 @@ def index_documents():
         indexer.build_index(embeddings, chunks)
         indexer.save_index()
 
-        logger.info("✅ Indexing complete: %d chunks", len(chunks))
+        logger.info("[OK] Indexing complete: %d chunks", len(chunks))
 
         return jsonify({"status": "success", "num_chunks": len(chunks), "index_size": indexer.index.ntotal})
 
