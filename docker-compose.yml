@@ -1,0 +1,61 @@
+services:
+  vector-api:
+    build:
+      context: .
+      dockerfile: pipeline/embed-and-vec-search/Dockerfile
+    working_dir: /app/pipeline/embed-and-vec-search
+    command: ["python", "vector_search_api.py"]
+    ports:
+      - "5001:5001"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./pipeline/storage:/app/pipeline/storage
+      - ./pipeline/embed-and-vec-search/vector_index:/app/pipeline/embed-and-vec-search/vector_index
+
+  rag-api:
+    build:
+      context: .
+      dockerfile: pipeline/rag-orchestrator/Dockerfile
+    working_dir: /app/pipeline/rag-orchestrator
+    command: ["python", "api.py"]
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - VECTOR_SEARCH_URL=http://vector-api:5001/vector/search
+      - GROK_API_KEY=${GROQ_API_KEY:-}
+      - GROQ_MODEL=${GROQ_MODEL:-llama-3.3-70b-versatile}
+      - MOCK_MODE=${MOCK_MODE:-False}
+    depends_on:
+      - vector-api
+    volumes:
+      - ./pipeline/storage:/app/pipeline/storage
+      - ./pipeline/embed-and-vec-search/vector_index:/app/pipeline/embed-and-vec-search/vector_index
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - PYTHON_RAG_URL=http://rag-api:8000
+      - VECTOR_SEARCH_URL=http://vector-api:5001
+      - CORS_ORIGIN=http://localhost:3000
+    depends_on:
+      - rag-api
+      - vector-api
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+    depends_on:
+      - backend
+
