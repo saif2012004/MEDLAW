@@ -74,8 +74,8 @@ MedLaw helps organizations navigate complex regulatory frameworks (FDA, ISO 1348
 
 ```bash
 # Clone the repository
-git clone https://github.com/saif2012004/MEDLAW.git
-cd MEDLAW
+git clone https://github.com/saif2012004/MedLaw-Regulatory-Copilot.git
+cd MedLaw-Regulatory-Copilot
 
 # Set up environment variables
 cp backend/env.example.txt backend/.env
@@ -332,7 +332,7 @@ Contributions are welcome! Please follow these steps:
 For questions, feedback, or collaboration opportunities:
 
 - **GitHub**: [@saif2012004](https://github.com/saif2012004)
-- **Repository**: [github.com/saif2012004/MEDLAW](https://github.com/saif2012004/MEDLAW)
+- **Repository**: [github.com/saif2012004/MedLaw-Regulatory-Copilot](https://github.com/saif2012004/MedLaw-Regulatory-Copilot)
 - **Email**: saifurrehman2012004@gmail.com
 
 ## 🔮 Future Roadmap
@@ -351,5 +351,5 @@ For questions, feedback, or collaboration opportunities:
 ---
 
 **Last Updated**: February 2026  
-**Repository**: https://github.com/saif2012004/MEDLAW
+**Repository**: https://github.com/saif2012004/MedLaw-Regulatory-Copilot
 
